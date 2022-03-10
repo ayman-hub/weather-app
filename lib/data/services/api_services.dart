@@ -33,8 +33,8 @@ class ApiServices {
     }
   }
 
-  Future<CityWeatherModel?> getCityWeather(Set<String?> cityName) async {
-    for (var element in cityName) {
+  Future<CityWeatherModel?> getCityWeather(List<String>? cityName) async {
+    for (var element in cityName!) {
       try {
         final _cityWeatherUrl =
             "$cityWeatherUrlKey?q=$element&appid=$apiKey&units=metric";

@@ -126,12 +126,15 @@ class Weather {
 }
 
 class Main {
-  double? temp;
-  double? feelsLike;
-  double? tempMin;
-  double? tempMax;
+  num? temp;
+  num? feelsLike;
+  num? tempMin;
+  num? tempMax;
   int? pressure;
   int? humidity;
+  num get getTemp => temp! - 272.5;
+  num get getMaxTemp => tempMax! - 272.5;
+  num get getMnumemp => tempMin! - 272.5;
 
   Main(
       {this.temp,

@@ -23,17 +23,7 @@ class LocationWeatherBloc
     try {
       LocationWeatherModel? locationWeather =
           await _apiServices.getCurrentLocationWeather();
-      //Main? main = await _apiServices.getCurrentLocationTemperature();
-      // if (locationWeather!.cod == '200') {
-      //   print('location weather:: $locationWeather');
-      // }
-      // else {
-      //   emit(LocationWeatherError("error"));
-      // }
       emit(LocationWeatherLoaded(locationWeather!));
-
-      // emit(LocationWeatherLoaded(locationWeather?.list?['main']['temp'],
-      //     locationWeather?.city?.name ?? 'no name'));
     } on Exception catch (e) {
       print(e);
       emit(LocationWeatherError(e.toString()));

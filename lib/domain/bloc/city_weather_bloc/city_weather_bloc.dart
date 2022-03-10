@@ -14,7 +14,7 @@ class CityWeatherBloc extends Bloc<CityWeatherEvent, CityWeatherState> {
     on<CityWeatherEventStarted>(mapCityWeatherStateToState);
   }
 
-  late final Set<String>? cityName;
+  late final List<String>? cityName;
 
   FutureOr<void> mapCityWeatherStateToState(
       CityWeatherEventStarted event, Emitter<CityWeatherState> emit) async {
@@ -23,7 +23,7 @@ class CityWeatherBloc extends Bloc<CityWeatherEvent, CityWeatherState> {
     emit((CityWeatherLoading()));
     try {
       CityWeatherModel? cityWeather =
-          await _apiServices.getCityWeather(cityName!);
+          await _apiServices.getCityWeather(cityName);
       emit(CityWeatherLoaded(cityWeather!));
     } on Exception catch (e) {
       print(e);

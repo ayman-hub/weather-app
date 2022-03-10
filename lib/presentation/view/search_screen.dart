@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:textfield_tags/textfield_tags.dart';
+
+import 'city_weather_screen.dart';
 
 class SearchScreen extends StatelessWidget {
   SearchScreen({Key? key}) : super(key: key);
@@ -26,6 +29,11 @@ class SearchScreen extends StatelessWidget {
                 onTap: () {
                   if (formKey.currentState!.validate()) {
                     print(controller.text.split(','));
+                    List<String>? newlist = controller.text.split(',');
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CityWeather(tags: newlist)));
                   }
                   // context.read<CityWeatherBloc>().cityName =
                   // _tags!;
