@@ -1,3 +1,4 @@
+import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,35 +46,36 @@ class WeatherByHours extends StatelessWidget {
                     String? timeStamp =
                         ApiServices().getTimeStamp(dateTime.hour);
 
-                    return Container(
+                    return BlurryContainer(
                       height: 300.h,
                       width: 100.w,
+                      blur: 100,
+                      bgColor: Colors.white,
+                      borderRadius: BorderRadius.circular(20.r),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Text(
                             '${dateTime.hour}$timeStamp',
                             style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white,
+                              fontSize: 20.sp,
                             ),
                           ),
                           Text(
                             weatherIcon,
                             style: TextStyle(
-                              color: Colors.yellow,
+                              fontSize: 20.sp,
                             ),
                           ),
                           Text(
                             '$temp°',
                             style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white,
+                              fontSize: 20.sp,
                             ),
                           ),
                         ],
-                      ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadiusDirectional.circular(20.r),
-                        color: Colors.white,
                       ),
                     );
                   });
