@@ -5,6 +5,10 @@ abstract class CityWeatherEvent extends Equatable {
 }
 
 class CityWeatherEventStarted extends CityWeatherEvent {
+  List<String> cities;
+
+  CityWeatherEventStarted(this.cities);
+
   @override
   List<Object> get props => [];
 }

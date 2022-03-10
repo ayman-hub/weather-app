@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
@@ -25,15 +27,17 @@ class ApiServices {
       print('location :: $location');
       final _url =
           '${currentLocationUrlKey}lat=${location.latitude}&lon=${location.longitude}&appid=$apiKey&units=metric';
+      print(_url);
       final response = await http.get(Uri.parse(_url));
       var weather = locationWeatherFromJson(response.body);
+      log(weather.toJson().toString());
       return weather;
     } catch (error, stacktrace) {
       throw Exception('Exception accrued: $error with stacktrace: $stacktrace');
     }
   }
 
-  Future<CityWeatherModel?> getCityWeather(Set<String?> cityName) async {
+  Future<CityWeatherModel?> getCityWeather(List<String> cityName) async {
     for (var element in cityName) {
       try {
         final _cityWeatherUrl =
