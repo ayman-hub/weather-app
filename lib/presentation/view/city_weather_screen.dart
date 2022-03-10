@@ -27,12 +27,11 @@ class CityWeather extends StatelessWidget {
             child: CupertinoActivityIndicator(),
           );
         } else if (state is CityWeatherLoaded) {
-          CityWeatherModel? list = state.cityWeatherModel;
-          log(list.toJson().toString());
-          return Wrap(
+          List<CityWeatherModel>? list = state.cityWeatherModel;
+          return ListView(
             children: [
-              ...list.weather!.map((e) {
-                return Text("${e.id}  ${list.name} // ${e.icon} // ${e.description}");
+              ...list.map((e) {
+                return Text("${e.id}  ${e.name}");
                 /*int? minTemp = list.main?.tempMin?.toInt();
                 int? maxTemp = list.main?.tempMax?.toInt();
                 String? description = e.description;

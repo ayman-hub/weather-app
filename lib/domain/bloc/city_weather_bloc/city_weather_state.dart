@@ -8,7 +8,7 @@ abstract class CityWeatherState extends Equatable {
 class CityWeatherLoading extends CityWeatherState {}
 
 class CityWeatherLoaded extends CityWeatherState {
-  final CityWeatherModel cityWeatherModel;
+  final List<CityWeatherModel> cityWeatherModel;
   const CityWeatherLoaded(this.cityWeatherModel);
   @override
   List<Object> get props => [];

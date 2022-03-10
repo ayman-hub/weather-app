@@ -37,20 +37,22 @@ class ApiServices {
     }
   }
 
-  Future<CityWeatherModel?> getCityWeather(List<String> cityName) async {
+  Future<List<CityWeatherModel>> getCityWeather(List<String> cityName) async {
+    print('cityNames:: $cityName');
+    List<CityWeatherModel> weathers = [];
     for (var element in cityName) {
       try {
         final _cityWeatherUrl =
             "$cityWeatherUrlKey?q=$element&appid=$apiKey&units=metric";
         final response = await http.get(Uri.parse(_cityWeatherUrl));
         var weather = cityWeatherFromJson(response.body);
-        return weather;
+        weathers.add(weather);
       } catch (error, stacktrace) {
         throw Exception(
             'Exception accrued: $error with stacktrace: $stacktrace');
       }
     }
-    return null;
+    return weathers;
   }
 
   String getWeatherIcon(int condition) {

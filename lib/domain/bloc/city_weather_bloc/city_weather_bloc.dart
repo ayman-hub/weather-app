@@ -22,7 +22,7 @@ class CityWeatherBloc extends Bloc<CityWeatherEvent, CityWeatherState> {
     print('cityWeatherLoading');
     emit((CityWeatherLoading()));
     try {
-      CityWeatherModel? cityWeather =
+      List<CityWeatherModel>? cityWeather =
           await _apiServices.getCityWeather(event.cities);
       emit(CityWeatherLoaded(cityWeather!));
     } on Exception catch (e) {
