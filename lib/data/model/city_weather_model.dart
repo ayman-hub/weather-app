@@ -3,15 +3,15 @@ class CityWeatherModel {
   List<Weather>? weather;
   String? base;
   Main? main;
-  int? visibility;
+  num? visibility;
   Wind? wind;
   Clouds? clouds;
-  int? dt;
+  num? dt;
   Sys? sys;
-  int? timezone;
-  int? id;
+  num? timezone;
+  num? id;
   String? name;
-  int? cod;
+  num? cod;
 
   CityWeatherModel(
       {this.coord,
@@ -82,8 +82,8 @@ class CityWeatherModel {
 }
 
 class Coord {
-  int? lon;
-  int? lat;
+  num? lon;
+  num? lat;
 
   Coord({this.lon, this.lat});
 
@@ -101,7 +101,7 @@ class Coord {
 }
 
 class Weather {
-  int? id;
+  num? id;
   String? main;
   String? description;
   String? icon;
@@ -126,15 +126,12 @@ class Weather {
 }
 
 class Main {
-  num? temp;
-  num? feelsLike;
-  num? tempMin;
-  num? tempMax;
-  int? pressure;
-  int? humidity;
-  num get getTemp => temp! - 272.5;
-  num get getMaxTemp => tempMax! - 272.5;
-  num get getMnumemp => tempMin! - 272.5;
+  double? temp;
+  double? feelsLike;
+  double? tempMin;
+  double? tempMax;
+  num? pressure;
+  num? humidity;
 
   Main(
       {this.temp,
@@ -167,7 +164,7 @@ class Main {
 
 class Wind {
   double? speed;
-  int? deg;
+  num? deg;
   double? gust;
 
   Wind({this.speed, this.deg, this.gust});
@@ -188,7 +185,7 @@ class Wind {
 }
 
 class Clouds {
-  int? all;
+  num? all;
 
   Clouds({this.all});
 
@@ -204,11 +201,11 @@ class Clouds {
 }
 
 class Sys {
-  int? type;
-  int? id;
+  num? type;
+  num? id;
   String? country;
-  int? sunrise;
-  int? sunset;
+  num? sunrise;
+  num? sunset;
 
   Sys({this.type, this.id, this.country, this.sunrise, this.sunset});
 

@@ -10,11 +10,11 @@ part 'city_weather_event.dart';
 part 'city_weather_state.dart';
 
 class CityWeatherBloc extends Bloc<CityWeatherEvent, CityWeatherState> {
-  CityWeatherBloc(this.cityName) : super(CityWeatherLoading()) {
+  CityWeatherBloc() : super(CityWeatherLoading()) {
     on<CityWeatherEventStarted>(mapCityWeatherStateToState);
   }
 
-  late final List<String>? cityName;
+ // late final Set<String>? cityName;
 
   FutureOr<void> mapCityWeatherStateToState(
       CityWeatherEventStarted event, Emitter<CityWeatherState> emit) async {
@@ -23,7 +23,7 @@ class CityWeatherBloc extends Bloc<CityWeatherEvent, CityWeatherState> {
     emit((CityWeatherLoading()));
     try {
       CityWeatherModel? cityWeather =
-          await _apiServices.getCityWeather(cityName);
+          await _apiServices.getCityWeather(event.cities);
       emit(CityWeatherLoaded(cityWeather!));
     } on Exception catch (e) {
       print(e);
