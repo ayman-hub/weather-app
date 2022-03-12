@@ -47,7 +47,7 @@ class CityWeatherModel {
     timezone = json['timezone'];
     id = json['id'];
     name = json['name'];
-    cod = json['cod'];
+    cod = num.tryParse(json['cod'].toString());
   }
 
   Map<String, dynamic> toJson() {

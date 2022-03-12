@@ -24,7 +24,7 @@ class CityWeatherBloc extends Bloc<CityWeatherEvent, CityWeatherState> {
     try {
       List<CityWeatherModel>? cityWeather =
           await _apiServices.getCityWeather(event.cities);
-      emit(CityWeatherLoaded(cityWeather!));
+      emit(CityWeatherLoaded(cityWeather));
     } on Exception catch (e) {
       print(e);
       emit(CityWeatherError(e.toString()));

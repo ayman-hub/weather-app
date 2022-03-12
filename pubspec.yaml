@@ -43,6 +43,7 @@ dependencies:
   blurrycontainer: ^0.1.0
   intl: ^0.17.0
   textfield_tags: ^1.4.3
+  bloc_test: ^9.0.3
 
 
 dev_dependencies:
